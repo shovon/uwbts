@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start:dev": "webpack-dev-server --content-base=./public"
+  },
+  "devDependencies": {
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10",
+    "typings": "^1.0.4",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "redux": "^3.5.2"
+  }
+}
