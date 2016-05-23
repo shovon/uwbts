@@ -1,17 +1,22 @@
 import * as _ from 'lodash';
-import { Location } from 'history';
-
-let foo: Location;
+// import { Location } from 'react-router/history';
 
 export interface IRouteState {
-  location: Location
+  location: HistoryModule.Location
 }
 
 type SET_LOCATION = 'route/SET_LOCATION';
 const SET_LOCATION: SET_LOCATION = 'route/SET_LOCATION';
 
 const defaultState: IRouteState = {
-  location: {}
+  location: {
+    pathname: '',
+    search: '',
+    query: {},
+    state: {},
+    action: '',
+    key: ''
+  }
 };
 
 interface IRouteAction {

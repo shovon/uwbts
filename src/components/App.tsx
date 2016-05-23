@@ -5,15 +5,13 @@ import LoginForm from './LoginForm';
 import RegistrationForm from './RegistrationForm';
 import { IState } from '../store';
 
-class App extends Component<IState, {}> {
+export default class App extends Component<{ state: IState }, {}> {
   render() {
+    console.log(this.props);
     return (
       <div>
         <Navbar />
-        <RegistrationForm />
       </div>
     );
   }
 }
-
-export default App;

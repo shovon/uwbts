@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start:dev": "webpack-dev-server --content-base=./public"
+    "start:dev": "webpack-dev-server --history-api-fallback --inline --content-base=./public"
   },
   "devDependencies": {
     "lodash": "^4.13.0",
