@@ -25,7 +25,7 @@ interface IRouteAction {
 
 interface ISetPathnameAction extends IRouteAction {
   type: SET_LOCATION,
-  location: Location
+  location: HistoryModule.Location
 }
 
 export default function reducer(state = defaultState, action: IRouteAction): IRouteState {
@@ -41,7 +41,7 @@ export default function reducer(state = defaultState, action: IRouteAction): IRo
   }
 }
 
-export const setLocation = (location: Location): ISetPathnameAction => ({
+export const setLocation = (location: HistoryModule.Location): ISetPathnameAction => ({
   type: SET_LOCATION,
   location
 });

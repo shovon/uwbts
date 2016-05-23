@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-const Root = ({}) => (
+const NotFound = ({}) => (
   <div>
+    Not found! D:
   </div>
 );
 
-export default Root;
+export default NotFound;

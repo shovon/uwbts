@@ -4,13 +4,15 @@ import Navbar from './Navbar';
 import LoginForm from './LoginForm';
 import RegistrationForm from './RegistrationForm';
 import { IState } from '../store';
+import { Link } from 'react-router';
 
 export default class App extends Component<{ state: IState }, {}> {
   render() {
-    console.log(this.props);
     return (
       <div>
         <Navbar />
+        <Link to='something'>Something</Link>
+        {this.props.children}
       </div>
     );
   }
