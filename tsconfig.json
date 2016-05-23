@@ -3,7 +3,9 @@
     "target": "es5",
     "sourceMap": true,
     "module": "commonjs",
-    "jsx": "react"
+    "jsx": "react",
+    "noImplicitAny": true,
+    "noImplicitReturns": true
   },
   "compileOnSave": false,
   "buildOnSave": false,

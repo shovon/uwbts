@@ -1,11 +1,10 @@
 import React = require('react');
 import ReactDOM = require('react-dom');
 import App from './components/App';
-import { createStore, combineReducers } from 'redux';
-
-const store = createStore(
-  (state = null, action: any) => state
-);
+import * as redux from 'redux';
+import { store, IState } from './store';
+import { dispatchers } from './dispatch';
+import history from './history';
 
 function render(state: any): void {
   ReactDOM.render(
@@ -14,8 +13,18 @@ function render(state: any): void {
   );
 }
 
-store.subscribe(state => {
-  render(state);
-});
+function bootstrap() {
+  store.subscribe(state => {
+    render(state);
+  });
 
-render(store.getState());
+  render(store.getState());
+
+  history.listen(location => {
+    dispatchers.setLocation(location);
+  });
+
+  dispatchers.setLocation(history.getCurrentLocation());
+}
+
+bootstrap();
