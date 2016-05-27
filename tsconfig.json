@@ -5,9 +5,10 @@
     "module": "commonjs",
     "jsx": "react",
     "noImplicitAny": true,
-    "noImplicitReturns": true
+    "noImplicitReturns": true,
+    "outDir": "./bin"
   },
-  "compileOnSave": false,
+  "compileOnSave": true,
   "buildOnSave": false,
   "exclude": [
     "node_modules"
