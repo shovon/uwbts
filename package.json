@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "start:server": "rm -rf bin && tsc && nodemon bin/server.js",
     "start:dev": "webpack-dev-server --history-api-fallback --inline --content-base=./public"
   },
   "devDependencies": {
