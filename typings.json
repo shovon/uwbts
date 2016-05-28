@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "lodash": "registry:npm/lodash#4.0.0+20160416211519",
-    "redux": "registry:npm/redux#3.0.6+20160214194820"
+    "redux": "registry:npm/redux#3.0.6+20160214194820",
+    "webpack": "registry:npm/webpack#1.12.9+20160418172948"
   }
 }

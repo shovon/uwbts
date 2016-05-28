@@ -3,3 +3,4 @@ typings
 .DS_Store
 public/app.bundle.js
 bin
+npm-debug.log
