@@ -2,6 +2,13 @@ import * as WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 import * as path from 'path';
 import webpackIsomorphicToolsConfiguration from './webpack-isomorphic-tools-configuration';
 
+// In order for this to work, we need to generate a webpack-stat.json file.
+// Without it, Webpack will continue polling for that file.
+//
+// In order to generate it, we need to initialize a webpack compiler, with
+// an instance of WebpackIsomorphicToolsPlugin initialized, and passed-in as
+// a plugin.
+
 const projectBasePath = path.resolve(__dirname, './');
 
 var webpack = require('webpack');
