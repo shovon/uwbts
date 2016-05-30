@@ -1,8 +1,16 @@
 const webpack = require('webpack');
 const path = require('path');
+const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
+const webpackIsomorphicToolsConfiguration =
+  require('./src/webpack-isomorphic-tools-configuration')
+
+const webpackIsomorphicToolsPlugin =
+  new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfiguration)
+    .development();
 
 module.exports = {
-  entry: './src/index.tsx',
+  context: path.resolve(__dirname, 'src'),
+  entry: './index.tsx',
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'app.bundle.js'
@@ -14,5 +22,8 @@ module.exports = {
     loaders: [
       { test: /.tsx?$/, loader: 'ts' }
     ]
-  }
+  },
+  plugins: [
+    webpackIsomorphicToolsPlugin
+  ]
 };
