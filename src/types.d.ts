@@ -1,9 +1,7 @@
 // TODO: separate these definitions out, so that they are easier to find.
 
 declare module WebpackIsomorphicTools {
-  interface WebpackIsomorphicToolsConfiguration {
-
-  }
+  interface WebpackIsomorphicToolsConfiguration {}
 }
 
 declare module 'webpack-isomorphic-tools' {

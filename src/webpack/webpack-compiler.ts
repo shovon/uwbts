@@ -1,5 +1,5 @@
 import * as webpack from 'webpack';
-import configuration from './webpack/webpack.server.config';
+import configuration from './webpack.server.config';
 import * as webpackDevMiddleware from 'webpack-dev-middleware';
 
 const compiler = webpack(configuration);

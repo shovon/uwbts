@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "start:server": "rm -rf bin && tsc && nodemon -i webpack-assets.json bin/main.js",
-    "start:dev": "webpack-dev-server --history-api-fallback --inline --content-base=./public",
+    "start:dev": "rm -rf bin && tsc && nodemon -i webpack-assets.json bin/webpack/main.js",
     "compile": "rm -rf bin && tsc"
   },
   "devDependencies": {

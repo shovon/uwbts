@@ -1,7 +1,7 @@
 import * as webpack from 'webpack';
 import * as path from 'path';
 import * as WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
-import webpackIsomorphicToolsConfiguration from '../webpack-isomorphic-tools-configuration';
+import webpackIsomorphicToolsConfiguration from './webpack-isomorphic-tools-configuration';
 
 const webpackIsomorphicToolsPlugin =
   new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfiguration)

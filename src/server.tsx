@@ -7,7 +7,7 @@ import getStateElementCreator from './getStateElementCreator';
 import * as webpack from 'webpack';
 import * as webpackDevMiddleware from 'webpack-dev-middleware';
 import * as path from 'path';
-import compiler, { webpackMiddleware } from './webpack-compiler';
+import compiler, { webpackMiddleware } from './webpack/webpack-compiler';
 
 const publicPath = path.resolve(__dirname, '..', 'public');
 
