@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as express from 'express';
-import { renderToString } from 'react-dom/server';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { match, RouterContext, Router } from 'react-router'
 import routes from './routes';
 import getStateElementCreator from './getStateElementCreator';
@@ -41,7 +41,11 @@ if (!/(production|staging)/.test(process.env.NODE_ENV)) {
 
 
 // TODO: return HTML, instead.
-app.get('*', (req, res) => {
+app.get('*', (req, res, next) => {
+  if (!req.accepts('html')) {
+    next();
+  }
+
   if (!/(production|staging)/.test(process.env.NODE_ENV)) {
     webpackIsomorphicTools.refresh();
   }
@@ -57,7 +61,7 @@ app.get('*', (req, res) => {
         .status(200)
         .send(`
           <!doctype html>
-          ${renderToString(
+          ${renderToStaticMarkup(
             <HTML>
               <RouterContext
                 router={Router}
