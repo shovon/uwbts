@@ -1,19 +1,32 @@
 // TODO: separate these definitions out, so that they are easier to find.
 
-declare module 'webpack-isomorphic-tools' {
+declare module WebpackIsomorphicTools {
   interface WebpackIsomorphicToolsConfiguration {
 
   }
+}
 
+declare module 'webpack-isomorphic-tools' {
   class WebpackIsomorphicTools {
-    constructor(configuration: WebpackIsomorphicToolsConfiguration);
+    constructor(configuration: WebpackIsomorphicTools.WebpackIsomorphicToolsConfiguration);
     development(isDevelopment: boolean): WebpackIsomorphicTools;
     server(path: string): Promise<any>;
   }
 
-  var _WebpackIsomorphicTools: new (configuration: WebpackIsomorphicToolsConfiguration) => WebpackIsomorphicTools;
+  var _WebpackIsomorphicTools: new (configuration: WebpackIsomorphicTools.WebpackIsomorphicToolsConfiguration) => WebpackIsomorphicTools;
 
   export = _WebpackIsomorphicTools;
+}
+
+declare module 'webpack-isomorphic-tools/plugin' {
+  class WebpackIsomorphicToolsPlugin {
+    constructor(configuration: WebpackIsomorphicTools.WebpackIsomorphicToolsConfiguration);
+    development(isDevelopment?: boolean): WebpackIsomorphicToolsPlugin;
+  }
+
+  var _WebpackIsomorphicToolsPlugin: new (configuration: WebpackIsomorphicTools.WebpackIsomorphicToolsConfiguration) => WebpackIsomorphicToolsPlugin;
+
+  export = _WebpackIsomorphicToolsPlugin;
 }
 
 declare module NodeJS {

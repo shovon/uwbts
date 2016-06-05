@@ -1,14 +1,13 @@
-const webpack = require('webpack');
-const path = require('path');
-const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
-const webpackIsomorphicToolsConfiguration =
-  require('./src/webpack-isomorphic-tools-configuration')
+import * as webpack from 'webpack';
+import * as path from 'path';
+import * as WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
+import webpackIsomorphicToolsConfiguration from '../webpack-isomorphic-tools-configuration';
 
 const webpackIsomorphicToolsPlugin =
   new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfiguration)
     .development();
 
-module.exports = {
+export default {
   context: path.resolve(__dirname, 'src'),
   entry: './index.tsx',
   output: {

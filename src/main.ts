@@ -1,6 +1,7 @@
 import * as WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 import * as path from 'path';
 import webpackIsomorphicToolsConfiguration from './webpack-isomorphic-tools-configuration';
+import './webpack-compiler';
 
 // In order for this to work, we need to generate a webpack-stat.json file.
 // Without it, Webpack will continue polling for that file.
@@ -11,11 +12,11 @@ import webpackIsomorphicToolsConfiguration from './webpack-isomorphic-tools-conf
 
 const projectBasePath = path.resolve(__dirname, './');
 
-var webpack = require('webpack');
-
 global.webpackIsomorphicTools =
   new WebpackIsomorphicTools(webpackIsomorphicToolsConfiguration)
-    .development(!/(production|staging)/.test(process.env.NODE_ENV || 'development'))
-    .server(projectBasePath).then(() => {
-      require('./server')
-    });
+    .development(!/(production|staging)/.test(process.env.NODE_ENV || 'development'));
+
+global.webpackIsomorphicTools
+  .server(projectBasePath).then(() => {
+    require('./server')
+  });

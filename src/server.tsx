@@ -7,14 +7,11 @@ import getStateElementCreator from './getStateElementCreator';
 import * as webpack from 'webpack';
 import * as webpackDevMiddleware from 'webpack-dev-middleware';
 import * as path from 'path';
+import compiler, { webpackMiddleware } from './webpack-compiler';
 
-const configuration = require('../webpack.config');
 const publicPath = path.resolve(__dirname, '..', 'public');
 
 const app = express();
-
-console.log(configuration);
-const compiler = webpack(configuration);
 
 class HTML extends React.Component<{}, {}> {
   render() {
@@ -38,10 +35,10 @@ class HTML extends React.Component<{}, {}> {
 app.use(express.static(publicPath));
 
 if (!/(production|staging)/.test(process.env.NODE_ENV)) {
-  app.use(webpackDevMiddleware(compiler, {
-    lazy: true
-  }));
+  app.use(webpackMiddleware);
 }
+
+
 
 // TODO: return HTML, instead.
 app.get('*', (req, res) => {
