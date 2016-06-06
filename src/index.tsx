@@ -15,7 +15,10 @@ function render(state: IState): void {
   const createElement = getStateElementCreator(store.getState());
 
   ReactDOM.render(
-    <Router history={history} routes={routes} createElement={createElement} />,
+    <Router
+      history={history}
+      routes={routes}
+      createElement={createElement} />,
     document.getElementById('application')
   );
 }
@@ -26,10 +29,6 @@ function bootstrap() {
   });
 
   render(store.getState());
-
-  history.listen(location => {
-    dispatchers.setLocation(location);
-  });
 }
 
 bootstrap();

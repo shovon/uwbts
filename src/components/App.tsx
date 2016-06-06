@@ -6,7 +6,12 @@ import RegistrationForm from './RegistrationForm';
 import { IState } from '../store';
 import { Link } from 'react-router';
 
-export default class App extends Component<{ state: IState }, {}> {
+interface IAppProps {
+  state: IState,
+  location: Location
+}
+
+export default class App extends Component<IAppProps, {}> {
   render() {
     return (
       <div>

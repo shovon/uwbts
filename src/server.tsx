@@ -20,11 +20,19 @@ class HTML extends React.Component<{}, {}> {
         <head>
           <meta charSet='utf-8' />
           <title>Some Example Crud Application</title>
+
+          {/* TODO: grab assets from webpack. */}
           <link rel='stylesheet' href='bootstrap-3.3.6-dist/css/bootstrap.css' />
         </head>
 
         <body>
+          {/*
+              TODO: consider "dangerously setting" the inner HTML of the
+              `<div id="application"></div>` tag.
+          */}
           <div id='application'>{this.props.children}</div>
+
+          {/* TODO: grab assets from webpack. */}
           <script src='app.bundle.js'></script>
         </body>
       </html>
@@ -38,14 +46,12 @@ if (!/(production|staging)/.test(process.env.NODE_ENV)) {
   app.use(webpackMiddleware);
 }
 
-
-
-// TODO: return HTML, instead.
 app.get('*', (req, res, next) => {
   if (!req.accepts('html')) {
     next();
   }
 
+  // This should only run on a live environment.
   if (!/(production|staging)/.test(process.env.NODE_ENV)) {
     webpackIsomorphicTools.refresh();
   }
@@ -71,6 +77,7 @@ app.get('*', (req, res, next) => {
           )}
         `)
     } else {
+      // TODO: this is not entirely correct. Return a rendered page instead.
       res.status(404).send('Not found')
     }
   });
