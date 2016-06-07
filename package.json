@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start:dev": "rm -rf bin && tsc && nodemon -i webpack-assets.json bin/webpack/main.js",
+    "start:dev": "rm -rf bin && tsc && nodemon -i webpack-assets.json bin/server.js",
     "compile": "rm -rf bin && tsc"
   },
   "devDependencies": {

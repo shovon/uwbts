@@ -7,6 +7,8 @@ const webpackIsomorphicToolsPlugin =
   new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfiguration)
     .development();
 
+console.log('From webpack config');
+
 export default {
   context: path.resolve(__dirname, '..'),
   entry: './index.js',

@@ -7,7 +7,7 @@ import getStateElementCreator from './getStateElementCreator';
 import * as webpack from 'webpack';
 import * as webpackDevMiddleware from 'webpack-dev-middleware';
 import * as path from 'path';
-import compiler, { webpackMiddleware } from './webpack/webpack-compiler';
+import webpackConfig from './webpack/webpack.config';
 
 const publicPath = path.resolve(__dirname, '..', 'public');
 
@@ -43,17 +43,12 @@ class HTML extends React.Component<{}, {}> {
 app.use(express.static(publicPath));
 
 if (!/(production|staging)/.test(process.env.NODE_ENV)) {
-  app.use(webpackMiddleware);
+  app.use(webpackDevMiddleware(webpack(webpackConfig)));
 }
 
 app.get('*', (req, res, next) => {
   if (!req.accepts('html')) {
     next();
-  }
-
-  // This should only run on a live environment.
-  if (!/(production|staging)/.test(process.env.NODE_ENV)) {
-    webpackIsomorphicTools.refresh();
   }
 
   match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {

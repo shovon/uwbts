@@ -4,10 +4,10 @@ import ReactDOM = require('react-dom');
 import * as redux from 'redux';
 import { store, IState } from './store';
 import { dispatchers } from './dispatch';
-import history from './history';
 import { Router, Route, Redirect, IndexRoute } from 'react-router';
 import routes from './routes';
 import getStateElementCreator from './getStateElementCreator';
+import { browserHistory } from 'react-router';
 
 type ComponentType = (props: { state: IState }) => JSX.Element;
 
@@ -16,7 +16,7 @@ function render(state: IState): void {
 
   ReactDOM.render(
     <Router
-      history={history}
+      history={browserHistory}
       routes={routes}
       createElement={createElement} />,
     document.getElementById('application')
