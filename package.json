@@ -1,7 +1,10 @@
 {
   "scripts": {
-    "start:dev": "rm -rf bin && tsc && nodemon -i webpack-assets.json bin/server.js",
-    "compile": "rm -rf bin && tsc"
+    "start:dev": "rm -rf bin && npm run typescript:compile && npm run sass:compile && concurrent 'nodemon -i webpack-assets.json bin/server.js' 'npm run sass:watch'",
+    "compile": "rm -rf bin && rm -rf public/styles && npm run sass:compile && npm run typescript:complile && webpack --config=bin/webpack/webpack.config.js",
+    "typescript:compile": "tsc",
+    "sass:compile": "node-sass -r src/styles -o public/styles",
+    "sass:watch": "node-sass -w -r src/styles -o public/styles"
   },
   "devDependencies": {
     "lodash": "^4.13.0",

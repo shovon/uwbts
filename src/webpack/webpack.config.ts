@@ -5,7 +5,7 @@ export default {
   context: path.resolve(__dirname, '../../src'),
   entry: './index.tsx',
   output: {
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, '../../public'),
     filename: 'app.bundle.js'
   },
   resolve: {
