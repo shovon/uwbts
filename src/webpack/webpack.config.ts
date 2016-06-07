@@ -1,8 +1,9 @@
-const webpack = require('webpack');
-const path = require('path');
+import * as webpack from 'webpack';
+import * as path from 'path';
 
-module.exports = {
-  entry: './src/index.tsx',
+export default {
+  context: path.resolve(__dirname, '../../src'),
+  entry: './index.tsx',
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'app.bundle.js'

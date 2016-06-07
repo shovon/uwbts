@@ -1,10 +1,11 @@
 {
   "scripts": {
-    "start:server": "rm -rf bin && tsc && nodemon bin/server.js",
-    "start:dev": "webpack-dev-server --history-api-fallback --inline --content-base=./public"
+    "start:dev": "rm -rf bin && tsc && nodemon -i webpack-assets.json bin/server.js",
+    "compile": "rm -rf bin && tsc"
   },
   "devDependencies": {
     "lodash": "^4.13.0",
+    "serialize-javascript": "^1.2.0",
     "ts-loader": "^0.8.2",
     "typescript": "^1.8.10",
     "typings": "^1.0.4",

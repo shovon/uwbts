@@ -3,8 +3,6 @@ import { IState } from './store';
 
 type ComponentType = (props: { state: IState }) => JSX.Element;
 
-const getStateElementCreator = (state: any) =>
+export default (state: any) =>
   (Comp: ComponentType, props: any) =>
-    <Comp {...props} state={state} />
-
-export default getStateElementCreator;
+    <Comp {...props} state={state} />;
