@@ -24,6 +24,7 @@ class HTML extends React.Component<{}, {}> {
 
           {/* TODO: grab assets from webpack. */}
           <link rel='stylesheet' href='bootstrap-3.3.6-dist/css/bootstrap.css' />
+          <link rel='stylesheet' href='styles/index.css' />
         </head>
 
         <body>
