@@ -3,7 +3,11 @@ import * as path from 'path';
 
 export default {
   context: path.resolve(__dirname, '../../src'),
-  entry: './index.tsx',
+  entry: [
+    'webpack-dev-server/client?http://0.0.0.0:8080',
+    'webpack/hot/only-dev-server',
+    './index.tsx'
+  ],
   output: {
     path: path.resolve(__dirname, '../../public'),
     filename: 'app.bundle.js'
@@ -15,5 +19,10 @@ export default {
     loaders: [
       { test: /.tsx?$/, loader: 'ts' }
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(true),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ]
 };

@@ -58,6 +58,17 @@ declare module 'webpack-dev-middleware' {
   export = _webpackDevMiddleware;
 }
 
+declare module 'webpack-hot-middleware' {
+  import * as webpack from 'webpack';
+  import * as express from 'express';
+
+  type webpackHotMiddleware = (compiler: webpack.compiler.Compiler) => express.Router;
+
+  var _webpackHotMiddleware : webpackHotMiddleware;
+
+  export = _webpackHotMiddleware;
+}
+
 declare var _development_: any;
 
 declare module _WebpackIsomorphicTools {

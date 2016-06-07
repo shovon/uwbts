@@ -1,5 +1,5 @@
 import * as React from 'react';
 
-const Root = () => <div>Welcome to the site!</div>;
+const Root = () => <div>Welcome to the woot!</div>;
 
 export default Root;

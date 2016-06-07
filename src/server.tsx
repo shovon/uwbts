@@ -6,6 +6,7 @@ import routes from './routes';
 import getStateElementCreator from './getStateElementCreator';
 import * as webpack from 'webpack';
 import * as webpackDevMiddleware from 'webpack-dev-middleware';
+import * as webpackHotMiddleware from 'webpack-hot-middleware';
 import * as path from 'path';
 import webpackConfig from './webpack/webpack.config';
 
@@ -41,10 +42,6 @@ class HTML extends React.Component<{}, {}> {
 }
 
 app.use(express.static(publicPath));
-
-if (!/(production|staging)/.test(process.env.NODE_ENV)) {
-  app.use(webpackDevMiddleware(webpack(webpackConfig)));
-}
 
 app.get('*', (req, res, next) => {
   if (!req.accepts('html')) {
