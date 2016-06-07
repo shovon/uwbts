@@ -17,7 +17,7 @@ export default {
   },
   module: {
     loaders: [
-      { test: /.tsx?$/, loader: 'ts' }
+      { test: /.tsx?$/, loaders: [ 'react-hot', 'ts' ], include: path.resolve(__dirname, '../../src') }
     ]
   },
   plugins: [
